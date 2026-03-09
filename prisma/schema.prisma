@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Entity {
+  id             String    @id @default(uuid())
+  type           String // 'billionaire' or 'company'
+  name           String
+  source_hints   String // JSON array of strings
+  tags           String // JSON array of strings
+  status         String    @default("active") // 'active', 'paused'
+  last_served_at DateTime?
+  times_served   Int       @default(0)
+
+  generated_profiles GeneratedProfile[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+}
+
+model GeneratedProfile {
+  id              String   @id @default(uuid())
+  entity_id       String
+  entity          Entity   @relation(fields: [entity_id], references: [id])
+  type            String // 'billionaire' or 'company' - redundant but useful for quick queries
+  title           String
+  hero_summary    String
+  sections_json   String // JSON structure for content sections
+  action_playbook String // JSON structure
+  reading_prompts String // JSON array
+  sources         String // JSON array
+  generated_at    DateTime @default(now())
+  quality_score   Int?
+  version         Int      @default(1)
+}
