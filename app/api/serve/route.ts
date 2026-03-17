@@ -16,33 +16,34 @@ function parseJsonArray(input: string): string[] {
 }
 
 export async function GET(req: Request) {
-  const url = new URL(req.url);
-  const type = url.searchParams.get("type") as "billionaire" | "company" | null;
-  const tag = url.searchParams.get("tag");
-  const mode = url.searchParams.get("mode") ?? "new"; // 'new' or 'reuse'
+  try {
+    const url = new URL(req.url);
+    const type = url.searchParams.get("type") as "billionaire" | "company" | null;
+    const tag = url.searchParams.get("tag");
+    const mode = url.searchParams.get("mode") ?? "new"; // 'new' or 'reuse'
 
-  if (!type || (type !== "billionaire" && type !== "company")) {
-    return NextResponse.json({ error: "Invalid type" }, { status: 400 });
-  }
+    if (!type || (type !== "billionaire" && type !== "company")) {
+      return NextResponse.json({ error: "Invalid type" }, { status: 400 });
+    }
 
-  const where: {
-    type: string;
-    status: string;
-    tags?: { contains: string };
-  } = {
-    type,
-    status: "active",
-  };
+    const where: {
+      type: string;
+      status: string;
+      tags?: { contains: string };
+    } = {
+      type,
+      status: "active",
+    };
 
-  if (tag) {
-    where.tags = { contains: `\"${tag}\"` };
-  }
+    if (tag) {
+      where.tags = { contains: `\"${tag}\"` };
+    }
 
-  const candidates = await prisma.entity.findMany({
-    where,
-    orderBy: [{ last_served_at: "asc" }, { id: "asc" }],
-    take: 100,
-  });
+    const candidates = await prisma.entity.findMany({
+      where,
+      orderBy: [{ last_served_at: "asc" }, { id: "asc" }],
+      take: 100,
+    });
 
   if (!candidates.length) {
     return NextResponse.json({ error: "No entities available" }, { status: 404 });
@@ -224,4 +225,15 @@ export async function GET(req: Request) {
     generation_source: generationSource,
     served_at: new Date().toISOString(),
   });
+  } catch (error) {
+    console.error("API Error:", error);
+    return NextResponse.json(
+      { 
+        error: "Internal server error", 
+        details: error instanceof Error ? error.message : "Unknown error",
+        stack: process.env.NODE_ENV === "development" && error instanceof Error ? error.stack : undefined
+      },
+      { status: 500 }
+    );
+  }
 }

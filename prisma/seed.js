@@ -129,6 +129,7 @@ async function importBillionairesFromCsv() {
 
 async function main() {
   const entities = [
+    // YC Companies
     {
       id: "c_stripe",
       type: "company",
@@ -137,7 +138,7 @@ async function main() {
         "https://en.wikipedia.org/wiki/Stripe,_Inc.",
         "https://stripe.com/",
       ]),
-      tags: JSON.stringify(["YC", "Fintech", "Developer"]),
+      tags: JSON.stringify(["YC", "Fintech", "Developer", "US"]),
       status: "active",
     },
     {
@@ -148,9 +149,76 @@ async function main() {
         "https://en.wikipedia.org/wiki/Airbnb",
         "https://www.airbnb.com/",
       ]),
-      tags: JSON.stringify(["YC", "Marketplace"]),
+      tags: JSON.stringify(["YC", "Marketplace", "US"]),
       status: "active",
     },
+    {
+      id: "c_dropbox",
+      type: "company",
+      name: "Dropbox",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Dropbox",
+        "https://www.dropbox.com/",
+      ]),
+      tags: JSON.stringify(["YC", "SaaS", "Storage", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_reddit",
+      type: "company",
+      name: "Reddit",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Reddit",
+        "https://www.reddit.com/",
+      ]),
+      tags: JSON.stringify(["YC", "Social", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_coinbase",
+      type: "company",
+      name: "Coinbase",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Coinbase",
+        "https://www.coinbase.com/",
+      ]),
+      tags: JSON.stringify(["YC", "Fintech", "Crypto", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_instacart",
+      type: "company",
+      name: "Instacart",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Instacart",
+        "https://www.instacart.com/",
+      ]),
+      tags: JSON.stringify(["YC", "Marketplace", "Delivery", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_doordash",
+      type: "company",
+      name: "DoorDash",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/DoorDash",
+        "https://www.doordash.com/",
+      ]),
+      tags: JSON.stringify(["YC", "Marketplace", "Delivery", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_twitch",
+      type: "company",
+      name: "Twitch",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Twitch_(service)",
+        "https://www.twitch.tv/",
+      ]),
+      tags: JSON.stringify(["YC", "Media", "Gaming", "US"]),
+      status: "active",
+    },
+    // AI Companies
     {
       id: "c_openai",
       type: "company",
@@ -163,6 +231,51 @@ async function main() {
       status: "active",
     },
     {
+      id: "c_anthropic",
+      type: "company",
+      name: "Anthropic",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Anthropic",
+        "https://www.anthropic.com/",
+      ]),
+      tags: JSON.stringify(["AI", "Research", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_deepmind",
+      type: "company",
+      name: "DeepMind",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/DeepMind",
+        "https://www.deepmind.com/",
+      ]),
+      tags: JSON.stringify(["AI", "Research", "UK"]),
+      status: "active",
+    },
+    {
+      id: "c_midjourney",
+      type: "company",
+      name: "Midjourney",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Midjourney",
+        "https://www.midjourney.com/",
+      ]),
+      tags: JSON.stringify(["AI", "Creative", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_stability_ai",
+      type: "company",
+      name: "Stability AI",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Stability_AI",
+        "https://stability.ai/",
+      ]),
+      tags: JSON.stringify(["AI", "Creative", "UK"]),
+      status: "active",
+    },
+    // India Companies
+    {
       id: "c_zoho",
       type: "company",
       name: "Zoho",
@@ -170,7 +283,184 @@ async function main() {
         "https://en.wikipedia.org/wiki/Zoho",
         "https://www.zoho.com/",
       ]),
-      tags: JSON.stringify(["India", "SaaS"]),
+      tags: JSON.stringify(["India", "SaaS", "Bootstrapped"]),
+      status: "active",
+    },
+    {
+      id: "c_freshworks",
+      type: "company",
+      name: "Freshworks",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Freshworks",
+        "https://www.freshworks.com/",
+      ]),
+      tags: JSON.stringify(["India", "SaaS", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_razorpay",
+      type: "company",
+      name: "Razorpay",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Razorpay",
+        "https://razorpay.com/",
+      ]),
+      tags: JSON.stringify(["India", "Fintech", "YC"]),
+      status: "active",
+    },
+    {
+      id: "c_zerodha",
+      type: "company",
+      name: "Zerodha",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Zerodha",
+        "https://zerodha.com/",
+      ]),
+      tags: JSON.stringify(["India", "Fintech", "Bootstrapped"]),
+      status: "active",
+    },
+    {
+      id: "c_cred",
+      type: "company",
+      name: "CRED",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/CRED_(company)",
+        "https://cred.club/",
+      ]),
+      tags: JSON.stringify(["India", "Fintech"]),
+      status: "active",
+    },
+    {
+      id: "c_swiggy",
+      type: "company",
+      name: "Swiggy",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Swiggy",
+        "https://www.swiggy.com/",
+      ]),
+      tags: JSON.stringify(["India", "Delivery", "Marketplace"]),
+      status: "active",
+    },
+    {
+      id: "c_flipkart",
+      type: "company",
+      name: "Flipkart",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Flipkart",
+        "https://www.flipkart.com/",
+      ]),
+      tags: JSON.stringify(["India", "Ecommerce", "Marketplace"]),
+      status: "active",
+    },
+    // Other Notable Companies
+    {
+      id: "c_notion",
+      type: "company",
+      name: "Notion",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+        "https://www.notion.so/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Productivity", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_figma",
+      type: "company",
+      name: "Figma",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Figma",
+        "https://www.figma.com/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Design", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_canva",
+      type: "company",
+      name: "Canva",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Canva",
+        "https://www.canva.com/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Design", "Australia"]),
+      status: "active",
+    },
+    {
+      id: "c_shopify",
+      type: "company",
+      name: "Shopify",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Shopify",
+        "https://www.shopify.com/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Ecommerce", "Canada"]),
+      status: "active",
+    },
+    {
+      id: "c_spotify",
+      type: "company",
+      name: "Spotify",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Spotify",
+        "https://www.spotify.com/",
+      ]),
+      tags: JSON.stringify(["Media", "Music", "Sweden"]),
+      status: "active",
+    },
+    {
+      id: "c_netflix",
+      type: "company",
+      name: "Netflix",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Netflix",
+        "https://www.netflix.com/",
+      ]),
+      tags: JSON.stringify(["Media", "Streaming", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_uber",
+      type: "company",
+      name: "Uber",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Uber",
+        "https://www.uber.com/",
+      ]),
+      tags: JSON.stringify(["Marketplace", "Delivery", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_slack",
+      type: "company",
+      name: "Slack",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Slack_(software)",
+        "https://slack.com/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Productivity", "US"]),
+      status: "active",
+    },
+    {
+      id: "c_atlassian",
+      type: "company",
+      name: "Atlassian",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/Atlassian",
+        "https://www.atlassian.com/",
+      ]),
+      tags: JSON.stringify(["SaaS", "Developer", "Australia"]),
+      status: "active",
+    },
+    {
+      id: "c_github",
+      type: "company",
+      name: "GitHub",
+      source_hints: JSON.stringify([
+        "https://en.wikipedia.org/wiki/GitHub",
+        "https://github.com/",
+      ]),
+      tags: JSON.stringify(["Developer", "SaaS", "US"]),
       status: "active",
     },
   ];
