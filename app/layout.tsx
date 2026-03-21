@@ -6,8 +6,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Runtime Reader",
-  description: "Generated profiles on demand",
+  title: "Milli - Billionaire & Company Profiles",
+  description: "AI-powered profiles of billionaires and companies with money trail analysis and actionable insights",
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
