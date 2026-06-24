@@ -101,6 +101,13 @@ export default function CompaniesPage() {
             Home
           </Link>
 
+          <Link
+            href="/companies/saved"
+            className="text-sm opacity-80 hover:opacity-100"
+          >
+            Saved
+          </Link>
+
           <button
             onClick={load}
             disabled={loading}
